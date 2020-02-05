@@ -19,6 +19,7 @@ import {
     DataProvider,
     DataProviderProxy,
     UseDataProviderOptions,
+    NOOP,
 } from '../types';
 import useLogoutIfAccessDenied from '../auth/useLogoutIfAccessDenied';
 
@@ -246,6 +247,10 @@ const performUndoableQuery = ({
         try {
             dataProvider[type](resource, payload)
                 .then(response => {
+                    if (response === NOOP) {
+                        dispatch({ type: FETCH_END });
+                        return;
+                    }
                     if (process.env.NODE_ENV !== 'production') {
                         validateResponseFormat(response, type);
                     }
@@ -349,6 +354,10 @@ const performQuery = ({
     try {
         return dataProvider[type](resource, payload)
             .then(response => {
+                if (response === NOOP) {
+                    dispatch({ type: FETCH_END });
+                    return;
+                }
                 if (process.env.NODE_ENV !== 'production') {
                     validateResponseFormat(response, type);
                 }

@@ -183,30 +183,33 @@ export interface DeleteManyResult {
     data?: Identifier[];
 }
 
+export type NOOP = 'NOOP';
+export const NOOP = 'NOOP';
+
 export type DataProviderProxy = {
     getList: (
         resource: string,
         params: GetListParams,
         options?: UseDataProviderOptions
-    ) => Promise<GetListResult>;
+    ) => Promise<GetListResult | NOOP>;
 
     getOne: (
         resource: string,
         params: GetOneParams,
         options?: UseDataProviderOptions
-    ) => Promise<GetOneResult>;
+    ) => Promise<GetOneResult | NOOP>;
 
     getMany: (
         resource: string,
         params: GetManyParams,
         options?: UseDataProviderOptions
-    ) => Promise<GetManyResult>;
+    ) => Promise<GetManyResult | NOOP>;
 
     getManyReference: (
         resource: string,
         params: GetManyReferenceParams,
         options?: UseDataProviderOptions
-    ) => Promise<GetManyReferenceResult>;
+    ) => Promise<GetManyReferenceResult | NOOP>;
 
     update: (
         resource: string,

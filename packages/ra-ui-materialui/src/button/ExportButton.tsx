@@ -8,6 +8,7 @@ import {
     Sort,
     DataProvider,
     ExporterContext,
+    NOOP,
 } from 'ra-core';
 import Button, { ButtonProps } from './Button';
 
@@ -32,16 +33,20 @@ const ExportButton: FunctionComponent<ExportButtonProps> = ({
                     filter,
                     pagination: { page: 1, perPage: maxResults },
                 })
-                .then(
-                    ({ data }) =>
+                .then(response => {
+                    if (response === NOOP) {
+                        return;
+                    }
+                    return (
                         exporter &&
                         exporter(
-                            data,
+                            response.data,
                             fetchRelatedRecords(dataProvider),
                             dataProvider,
                             resource
                         )
-                )
+                    );
+                })
                 .catch(error => {
                     console.error(error);
                     notify('ra.notification.http_error', 'warning');

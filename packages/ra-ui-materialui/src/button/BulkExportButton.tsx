@@ -8,6 +8,7 @@ import {
     DataProvider,
     Identifier,
     ExporterContext,
+    NOOP,
 } from 'ra-core';
 
 import Button, { ButtonProps } from './Button';
@@ -28,14 +29,17 @@ const BulkExportButton: FunctionComponent<BulkExportButtonProps> = ({
             exporter &&
                 dataProvider
                     .getMany(resource, { ids: selectedIds })
-                    .then(({ data }) =>
-                        exporter(
-                            data,
+                    .then(response => {
+                        if (response === NOOP) {
+                            return;
+                        }
+                        return exporter(
+                            response.data,
                             fetchRelatedRecords(dataProvider),
                             dataProvider,
                             resource
-                        )
-                    )
+                        );
+                    })
                     .catch(error => {
                         console.error(error);
                         notify('ra.notification.http_error', 'warning');

@@ -76,12 +76,15 @@ import TabbedFormTabs, { getTabFullPath } from './TabbedFormTabs';
  *
  * @param {Prop} props
  */
-const TabbedForm = props => (
-    <FormWithRedirect
-        {...props}
-        render={formProps => <TabbedFormView {...formProps} />}
-    />
-);
+
+const TabbedForm = props => {
+    return (
+        <FormWithRedirect
+            {...props}
+            render={formProps => <TabbedFormView {...formProps} />}
+        />
+    );
+};
 
 TabbedForm.propTypes = {
     children: PropTypes.node,
@@ -107,6 +110,13 @@ const useStyles = makeStyles(
             paddingTop: theme.spacing(1),
             paddingLeft: theme.spacing(2),
             paddingRight: theme.spacing(2),
+            marginTop: 50,
+        },
+        root: {
+            position: 'absolute',
+            width: '80%',
+            boxSizing: 'content-box',
+            padding: '10px',
         },
     }),
     { name: 'RaTabbedForm' }
@@ -153,6 +163,8 @@ export const TabbedFormView = props => {
                 tabs,
                 {
                     classes,
+                    scrollable: true,
+                    scrollButtons: 'on',
                     url,
                     tabsWithErrors,
                 },

@@ -1,5 +1,6 @@
 {
     "private": true,
+    "version: "3.4.2"
     "name": "react-admin-lerna",
     "scripts": {
         "build": "lerna run build",

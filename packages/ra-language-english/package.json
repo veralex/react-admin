@@ -1,6 +1,6 @@
 {
     "name": "ra-language-english",
-    "version": "3.4.1",
+    "version": "3.4.3-alpha.0",
     "description": "English messages for react-admin, the frontend framework for building admin applications on top of REST/GraphQL services",
     "repository": {
         "type": "git",
@@ -21,7 +21,6 @@
         "build-esm": "rimraf ./esm && tsc --outDir esm --module es2015",
         "watch": "tsc --outDir esm --module es2015 --watch"
     },
-    "dependencies": {},
     "keywords": [
         "react",
         "react-admin",

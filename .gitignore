@@ -13,3 +13,8 @@ examples/**/static
 examples/**/dist
 cypress/videos
 cypress/screenshots
+
+.vscode/
+.yarn/
+examples/
+package-lock.json

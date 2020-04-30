@@ -6,6 +6,8 @@ import AuthContext from './AuthContext';
 export const defaultAuthParams = {
     loginUrl: '/login',
     afterLoginUrl: '/',
+    signupURL: '/signup',
+    afterSignupURL: '/login',
 };
 
 /**

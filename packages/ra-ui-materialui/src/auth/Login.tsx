@@ -4,6 +4,7 @@ import React, {
     useRef,
     useEffect,
     useMemo,
+    ReactElement,
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -31,6 +32,7 @@ interface Props {
     className?: string;
     staticContext?: StaticContext;
     theme: object;
+    icon: ReactElement;
 }
 
 const useStyles = makeStyles(
@@ -91,6 +93,7 @@ const Login: React.FunctionComponent<
         children,
         staticContext,
         backgroundImage,
+        icon,
         ...rest
     } = props;
     const containerRef = useRef<HTMLDivElement>();
@@ -141,9 +144,7 @@ const Login: React.FunctionComponent<
             >
                 <Card className={classes.card}>
                     <div className={classes.avatar}>
-                        <Avatar className={classes.icon}>
-                            <LockIcon />
-                        </Avatar>
+                        <Avatar className={classes.icon}>{icon}</Avatar>
                     </div>
                     {children}
                 </Card>
@@ -160,11 +161,13 @@ Login.propTypes = {
     className: PropTypes.string,
     theme: PropTypes.object,
     staticContext: PropTypes.object,
+    icon: PropTypes.element,
 };
 
 Login.defaultProps = {
     theme: defaultTheme,
     children: <DefaultLoginForm />,
+    icon: <LockIcon />,
 };
 
 export default Login;

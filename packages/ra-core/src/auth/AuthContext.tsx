@@ -8,6 +8,7 @@ const defaultProvider: AuthProvider = {
     checkAuth: () => Promise.resolve(),
     checkError: () => Promise.resolve(),
     getPermissions: () => Promise.resolve(),
+    signup: () => Promise.resolve(),
 };
 
 const AuthContext = createContext<AuthProvider>(defaultProvider);

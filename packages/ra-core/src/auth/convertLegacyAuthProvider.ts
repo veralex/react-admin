@@ -4,6 +4,7 @@ import {
     AUTH_CHECK,
     AUTH_ERROR,
     AUTH_GET_PERMISSIONS,
+    AUTH_SIGNUP,
 } from './types';
 import { AuthProvider, LegacyAuthProvider } from '../types';
 
@@ -24,5 +25,6 @@ export default (legacyAuthProvider: LegacyAuthProvider): AuthProvider => {
     authProvider.checkError = error => legacyAuthProvider(AUTH_ERROR, error);
     authProvider.getPermissions = params =>
         legacyAuthProvider(AUTH_GET_PERMISSIONS, params);
+    authProvider.signup = params => legacyAuthProvider(AUTH_SIGNUP, params);
     return authProvider;
 };

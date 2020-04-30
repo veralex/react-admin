@@ -261,3 +261,22 @@ export const choices = memoize(
             ? getMessage(message, { list }, value, values)
             : undefined
 );
+
+/**
+ *
+ * String quality validator
+ *
+ * Returns an error if string values aren't equal
+ *
+ * @param {string} value1
+ * @param {string} value2
+ *
+ * @example
+ *
+ * const confi
+ *
+ */
+export const equals = memoize(
+    (value1, value2, message = 'ra.validation.equal') =>
+        value1 != null && value1 === value2
+);

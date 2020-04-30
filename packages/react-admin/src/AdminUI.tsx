@@ -16,6 +16,7 @@ AdminUI.defaultProps = {
     loading: Loading,
     loginPage: Login,
     logout: Logout,
+    signupPage: Login,
 };
 
 export default AdminUI;

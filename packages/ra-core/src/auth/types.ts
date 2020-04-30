@@ -9,10 +9,12 @@ export const AUTH_CHECK = 'AUTH_CHECK';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 export const AUTH_GET_PERMISSIONS = 'AUTH_GET_PERMISSIONS';
+export const AUTH_SIGNUP = 'AUTH_SIGNUP';
 
 export type AuthActionType =
     | typeof AUTH_LOGIN
     | typeof AUTH_LOGOUT
     | typeof AUTH_ERROR
     | typeof AUTH_CHECK
-    | typeof AUTH_GET_PERMISSIONS;
+    | typeof AUTH_GET_PERMISSIONS
+    | typeof AUTH_SIGNUP;

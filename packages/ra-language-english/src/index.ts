@@ -112,6 +112,15 @@ const englishMessages: TranslationMessages = {
             sign_in_error: 'Authentication failed, please retry',
             logout: 'Logout',
         },
+        signup: {
+            name: 'Name',
+            lastname: 'Last name',
+            username: 'Email',
+            password: 'Password',
+            confirmPassword: 'Confirm password',
+            sign_up: 'Sign up',
+            sign_up_error: 'Registration failed, please retry',
+        },
         notification: {
             updated: 'Element updated |||| %{smart_count} elements updated',
             created: 'Element created',

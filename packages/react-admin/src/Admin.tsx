@@ -99,6 +99,7 @@ const Admin: FunctionComponent<AdminProps> = ({
     loading,
     locale,
     loginPage,
+    signupPage,
     logoutButton,
     menu, // deprecated, use a custom layout instead
     theme,
@@ -140,6 +141,7 @@ const Admin: FunctionComponent<AdminProps> = ({
                 title={title}
                 loading={loading}
                 loginPage={loginPage}
+                signupPage={signupPage}
                 logout={authProvider ? logoutButton : undefined}
             >
                 {children}

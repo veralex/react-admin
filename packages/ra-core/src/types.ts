@@ -63,6 +63,7 @@ export type AuthProvider = {
     checkAuth: (params: any) => Promise<void>;
     checkError: (error: any) => Promise<void>;
     getPermissions: (params: any) => Promise<any>;
+    signup: (params: any) => Promise<any>;
     [key: string]: any;
 };
 
@@ -413,6 +414,7 @@ export interface AdminProps {
     loading?: ComponentType;
     locale?: string;
     loginPage?: LoginComponent | boolean;
+    signupPage?: LoginComponent | boolean;
     logoutButton?: ComponentType;
     menu?: ComponentType;
     theme?: object;

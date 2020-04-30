@@ -101,6 +101,7 @@ const CoreAdmin: FunctionComponent<AdminProps> = ({
     loading,
     loginPage,
     logoutButton,
+    signupPage,
     menu, // deprecated, use a custom layout instead
     theme,
     title = 'React Admin',
@@ -125,6 +126,7 @@ const CoreAdmin: FunctionComponent<AdminProps> = ({
                 title={title}
                 loading={loading}
                 loginPage={loginPage}
+                signupPage={signupPage}
                 logout={authProvider ? logoutButton : undefined}
             >
                 {children}

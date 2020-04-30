@@ -31,6 +31,7 @@ export interface AdminUIProps {
     menu?: ComponentType;
     theme?: object;
     title?: TitleComponent;
+    signupPage?: LoginComponent | boolean;
 }
 
 // for BC
@@ -48,6 +49,7 @@ const CoreAdminUI: FunctionComponent<AdminUIProps> = ({
     menu, // deprecated, use a custom layout instead
     theme,
     title = 'React Admin',
+    signupPage = false,
 }) => {
     return (
         <Switch>
@@ -57,6 +59,18 @@ const CoreAdminUI: FunctionComponent<AdminUIProps> = ({
                     path="/login"
                     render={props =>
                         createElement(loginPage, {
+                            ...props,
+                            title,
+                            theme,
+                        })
+                    }
+                />
+            ) : null}
+            {signupPage !== false && signupPage !== true ? (
+                <Route
+                    path="/signup"
+                    render={props =>
+                        createElement(signupPage, {
                             ...props,
                             title,
                             theme,

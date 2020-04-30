@@ -115,6 +115,16 @@ export interface TranslationMessages extends StringMap {
             sign_in_error: string;
             logout: string;
         };
+        signup: {
+            [key: string]: StringMap | string;
+            name: string;
+            lastname: string;
+            username: string;
+            password: string;
+            confirmPassword: string;
+            sign_up: string;
+            sign_up_error: string;
+        };
         notification: {
             [key: string]: StringMap | string;
             updated: string;
